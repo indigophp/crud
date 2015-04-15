@@ -1,0 +1,5 @@
+suites:
+  crud_suite:
+    namespace: Indigo\Crud
+    psr4_prefix: Indigo\Crud
+formatter.name: pretty
