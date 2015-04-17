@@ -18,8 +18,6 @@ namespace Indigo\Crud\Helper;
  */
 trait HasEntity
 {
-    use HasOriginalCommandName;
-
     /**
      * @var object
      */
@@ -33,13 +31,5 @@ trait HasEntity
     public function getEntity()
     {
         return $this->entity;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCommandName()
-    {
-        return get_class($this->entity).'::'.$this->getOriginalCommandName();
     }
 }

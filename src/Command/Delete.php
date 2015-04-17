@@ -11,13 +11,12 @@
 
 namespace Indigo\Crud\Command;
 
-use League\Tactician\Plugins\NamedCommand\NamedCommand;
 use Indigo\Crud\Helper\HasEntity;
 
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class Delete implements NamedCommand
+class Delete
 {
     use HasEntity;
 

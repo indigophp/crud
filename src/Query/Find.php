@@ -11,13 +11,12 @@
 
 namespace Indigo\Crud\Query;
 
-use League\Tactician\Plugins\NamedCommand\NamedCommand;
 use Indigo\Crud\Helper\HasEntityClass;
 
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class Find implements NamedCommand
+class Find
 {
     use HasEntityClass;
 

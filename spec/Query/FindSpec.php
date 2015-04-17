@@ -16,21 +16,6 @@ class FindSpec extends ObjectBehavior
         $this->shouldHaveType('Indigo\Crud\Query\Find');
     }
 
-    function it_is_a_command()
-    {
-        $this->shouldImplement('League\Tactician\Plugins\NamedCommand\NamedCommand');
-    }
-
-    function it_has_a_command_name()
-    {
-        $this->getCommandName()->shouldReturn('Indigo\Crud\Stub\Entity::find');
-    }
-
-    function it_has_an_original_name()
-    {
-        $this->getOriginalCommandName()->shouldReturn('find');
-    }
-
     function it_has_an_entity_class()
     {
         $this->getEntityClass()->shouldReturn('Indigo\Crud\Stub\Entity');

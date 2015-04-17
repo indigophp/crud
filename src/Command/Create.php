@@ -11,14 +11,13 @@
 
 namespace Indigo\Crud\Command;
 
-use League\Tactician\Plugins\NamedCommand\NamedCommand;
 use Indigo\Crud\Helper\HasData;
 use Indigo\Crud\Helper\HasEntityClass;
 
 /**
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class Create implements NamedCommand
+class Create
 {
     use HasData;
     use HasEntityClass;
