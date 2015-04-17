@@ -11,12 +11,21 @@
 
 namespace Indigo\Crud\Query;
 
+use League\Tactician\Plugins\NamedCommand\NamedCommand;
+use Indigo\Crud\Helper\HasEntityClass;
+
 /**
- * Finds and loads an entity
- *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class LoadEntity extends FindEntity
+class FindAll implements NamedCommand
 {
+    use HasEntityClass;
 
+    /**
+     * @param string $entityClass
+     */
+    public function __construct($entityClass)
+    {
+        $this->entityClass = $entityClass;
+    }
 }

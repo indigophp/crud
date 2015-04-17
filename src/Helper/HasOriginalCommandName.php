@@ -9,36 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Crud;
+namespace Indigo\Crud\Helper;
 
 /**
+ * Identifies an original command name extracted from the class name
+ *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-trait CrudCommand
+trait HasOriginalCommandName
 {
-    /**
-     * @var string
-     */
-    protected $serviceName = 'crud';
-
-    /**
-     * Returns the service name
-     *
-     * @return string
-     */
-    public function getServiceName()
-    {
-        return $this->serviceName;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCommandName()
-    {
-        return $this->serviceName.'.'.$this->getOriginalCommandName();
-    }
-
     /**
      * Returns the original name of the command
      *

@@ -12,25 +12,24 @@
 namespace Indigo\Crud\Command;
 
 use League\Tactician\Plugins\NamedCommand\NamedCommand;
-use Indigo\Crud\CrudCommand;
+use Indigo\Crud\Helper\HasData;
+use Indigo\Crud\Helper\HasEntity;
 
 /**
- * Saves an entity
- *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class SaveEntity implements NamedCommand
+class Update implements NamedCommand
 {
-    use CrudCommand;
+    use HasData;
     use HasEntity;
 
     /**
-     * @param string $serviceName
      * @param object $entity
+     * @param array  $data
      */
-    public function __construct($serviceName, $entity)
+    public function __construct($entity, array $data)
     {
-        $this->serviceName = $serviceName;
         $this->entity = $entity;
+        $this->data = $data;
     }
 }

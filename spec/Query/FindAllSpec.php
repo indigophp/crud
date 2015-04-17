@@ -4,16 +4,16 @@ namespace spec\Indigo\Crud\Query;
 
 use PhpSpec\ObjectBehavior;
 
-class FindAllEntitiesSpec extends ObjectBehavior
+class FindAllSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('service', 'Indigo\Crud\Stub\Entity');
+        $this->beConstructedWith('Indigo\Crud\Stub\Entity');
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Indigo\Crud\Query\FindAllEntities');
+        $this->shouldHaveType('Indigo\Crud\Query\FindAll');
     }
 
     function it_is_a_command()
@@ -21,19 +21,14 @@ class FindAllEntitiesSpec extends ObjectBehavior
         $this->shouldImplement('League\Tactician\Plugins\NamedCommand\NamedCommand');
     }
 
-    function it_has_a_service_name()
-    {
-        $this->getServiceName()->shouldReturn('service');
-    }
-
     function it_has_a_command_name()
     {
-        $this->getCommandName()->shouldReturn('service.findAllEntities');
+        $this->getCommandName()->shouldReturn('Indigo\Crud\Stub\Entity::findAll');
     }
 
     function it_has_an_original_name()
     {
-        $this->getOriginalCommandName()->shouldReturn('findAllEntities');
+        $this->getOriginalCommandName()->shouldReturn('findAll');
     }
 
     function it_has_an_entity_class()

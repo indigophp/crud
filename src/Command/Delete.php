@@ -11,25 +11,22 @@
 
 namespace Indigo\Crud\Command;
 
+use League\Tactician\Plugins\NamedCommand\NamedCommand;
+use Indigo\Crud\Helper\HasEntity;
+
 /**
- * Command holding an entity object
- *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-trait HasEntity
+class Delete implements NamedCommand
 {
-    /**
-     * @var object
-     */
-    protected $entity;
+    use HasEntity;
 
     /**
-     * Returns the entity
-     *
-     * @return object
+     * @param string $serviceName
+     * @param object $entity
      */
-    public function getEntity()
+    public function __construct($entity)
     {
-        return $this->entity;
+        $this->entity = $entity;
     }
 }

@@ -9,15 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Crud\Query;
+namespace Indigo\Crud\Helper;
 
 /**
- * Query holding an entity class name
+ * Object holding an entity class name
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
 trait HasEntityClass
 {
+    use HasOriginalCommandName;
+
     /**
      * @var string
      */
@@ -31,5 +33,13 @@ trait HasEntityClass
     public function getEntityClass()
     {
         return $this->entityClass;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCommandName()
+    {
+        return $this->entityClass.'::'.$this->getOriginalCommandName();
     }
 }

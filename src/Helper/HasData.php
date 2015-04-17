@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Crud\Command;
+namespace Indigo\Crud\Helper;
 
 /**
  * Command holding data

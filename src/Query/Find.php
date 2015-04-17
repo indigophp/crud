@@ -12,39 +12,37 @@
 namespace Indigo\Crud\Query;
 
 use League\Tactician\Plugins\NamedCommand\NamedCommand;
-use Indigo\Crud\CrudCommand;
+use Indigo\Crud\Helper\HasEntityClass;
 
 /**
- * Finds all entities
- *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class FindAllEntities implements NamedCommand
+class Find implements NamedCommand
 {
-    use CrudCommand;
+    use HasEntityClass;
 
     /**
-     * @var string
+     * @var integer
      */
-    protected $entityClass;
+    protected $id;
 
     /**
-     * @param string $serviceName
-     * @param string $entityClass
+     * @param string  $entityClass
+     * @param integer $id
      */
-    public function __construct($serviceName, $entityClass)
+    public function __construct($entityClass, $id)
     {
-        $this->serviceName = $serviceName;
         $this->entityClass = $entityClass;
+        $this->id = $id;
     }
 
     /**
-     * Returns the entity class
+     * Returns the ID
      *
-     * @return string
+     * @return integer
      */
-    public function getEntityClass()
+    public function getId()
     {
-        return $this->entityClass;
+        return $this->id;
     }
 }

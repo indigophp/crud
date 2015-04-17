@@ -4,16 +4,16 @@ namespace spec\Indigo\Crud\Command;
 
 use PhpSpec\ObjectBehavior;
 
-class CreateEntitySpec extends ObjectBehavior
+class CreateSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('service', 'Indigo\Crud\Stub\Entity', []);
+        $this->beConstructedWith('Indigo\Crud\Stub\Entity', []);
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Indigo\Crud\Command\CreateEntity');
+        $this->shouldHaveType('Indigo\Crud\Command\Create');
     }
 
     function it_is_a_command()
@@ -21,19 +21,14 @@ class CreateEntitySpec extends ObjectBehavior
         $this->shouldImplement('League\Tactician\Plugins\NamedCommand\NamedCommand');
     }
 
-    function it_has_a_service_name()
-    {
-        $this->getServiceName()->shouldReturn('service');
-    }
-
     function it_has_a_command_name()
     {
-        $this->getCommandName()->shouldReturn('service.createEntity');
+        $this->getCommandName()->shouldReturn('Indigo\Crud\Stub\Entity::create');
     }
 
     function it_has_an_original_name()
     {
-        $this->getOriginalCommandName()->shouldReturn('createEntity');
+        $this->getOriginalCommandName()->shouldReturn('create');
     }
 
     function it_has_an_entity_class()

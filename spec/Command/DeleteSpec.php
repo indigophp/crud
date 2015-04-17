@@ -5,16 +5,16 @@ namespace spec\Indigo\Crud\Command;
 use Indigo\Crud\Stub\Entity;
 use PhpSpec\ObjectBehavior;
 
-class DeleteEntitySpec extends ObjectBehavior
+class DeleteSpec extends ObjectBehavior
 {
     function let(Entity $entity)
     {
-        $this->beConstructedWith('service', $entity);
+        $this->beConstructedWith($entity);
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Indigo\Crud\Command\DeleteEntity');
+        $this->shouldHaveType('Indigo\Crud\Command\Delete');
     }
 
     function it_is_a_command()
@@ -22,19 +22,14 @@ class DeleteEntitySpec extends ObjectBehavior
         $this->shouldImplement('League\Tactician\Plugins\NamedCommand\NamedCommand');
     }
 
-    function it_has_a_service_name()
+    function it_has_a_command_name(Entity $entity)
     {
-        $this->getServiceName()->shouldReturn('service');
-    }
-
-    function it_has_a_command_name()
-    {
-        $this->getCommandName()->shouldReturn('service.deleteEntity');
+        $this->getCommandName()->shouldReturn(get_class($entity->getWrappedObject()).'::delete');
     }
 
     function it_has_an_original_name()
     {
-        $this->getOriginalCommandName()->shouldReturn('deleteEntity');
+        $this->getOriginalCommandName()->shouldReturn('delete');
     }
 
     function it_has_an_entity(Entity $entity)
